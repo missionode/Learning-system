@@ -6,11 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const menuItems = document.querySelector('.menu-items');
-
-    hamburgerMenu.addEventListener('click', () => {
-        menuItems.classList.toggle('show');
-    });
-
+    
+    if (hamburgerMenu) {
+        hamburgerMenu.addEventListener('click', () => {
+            menuItems.classList.toggle('show');
+        });
+    }
+   
     document.addEventListener('click', (event) => {
         if (!event.target.closest('.top-nav')) {
             menuItems.classList.remove('show');
