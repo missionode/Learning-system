@@ -129,7 +129,7 @@ body {
 
 .menu-items {
     display: flex;
-    gap: 20px; /* Space between links */
+    gap: 3px; /* Space between links */
 }
 
 .menu-items a {
