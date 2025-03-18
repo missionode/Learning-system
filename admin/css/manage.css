@@ -1,0 +1,14 @@
+/* css/manage.css */
+
+#full-backup,
+#course-backup {
+  margin-bottom: 20px;
+}
+
+#course-select-backup {
+  margin-bottom: 10px;
+}
+
+#restore-full-backup {
+  display: none;
+}

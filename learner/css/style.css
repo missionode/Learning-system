@@ -1,0 +1,166 @@
+/* css/style.css */
+/* css/style.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333; /* Default text color */
+    line-height: 1.6; /* Standard line height for readability */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #555; /* Lighter shade of grey for headings */
+    margin-bottom: 10px; /* Standard spacing below headings */
+}
+
+p {
+    font-size: 16px; /* Standard paragraph font size */
+    margin-bottom: 15px; /* Standard spacing below paragraphs */
+}
+
+/* ... rest of your CSS ... */
+body {
+    padding-bottom: 60px;
+    padding-top: 40px;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+}
+
+.bottom-nav .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+}
+
+.bottom-nav .nav-item i {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.bottom-nav .nav-item span {
+    font-size: 12px;
+}
+
+/* Add active class */
+.bottom-nav .nav-item.active{
+    color:#007bff;
+}
+
+
+/* css/style.css */
+
+/* Top Navigation */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+    z-index: 100; /* Ensure it's above other content */
+}
+
+.top-nav .app-name {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.top-nav .hamburger-menu {
+    cursor: pointer;
+}
+
+.top-nav .menu-items {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 50px; /* Adjust as needed */
+    right: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    flex-direction: column;
+}
+
+.top-nav .menu-items a {
+    text-decoration: none;
+    color: #333;
+    padding: 8px 12px;
+    display: block;
+}
+
+.top-nav .menu-items.show {
+    display: flex; /* Show the menu */
+}
+
+
+/* Basic Top Nav Styles */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333; /* Or your preferred background */
+    color: white;
+    padding: 10px 20px;
+    width: 97%;
+}
+
+.app-name {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.menu-items {
+    display: flex;
+    gap: 20px; /* Space between links */
+}
+
+.menu-items a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Hamburger Menu Styles */
+.hamburger-menu {
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) { /* Adjust breakpoint as needed */
+    .menu-items {
+        display: none; /* Hide menu items on smaller screens */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Adjust based on top nav height */
+        right: 0;
+        background-color: #333;
+        width: 150px;
+        padding: 10px;
+    }
+
+    .menu-items.show {
+        display: flex; /* Show menu items when hamburger is clicked */
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger on smaller screens */
+    }
+}

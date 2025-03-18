@@ -1,0 +1,37 @@
+/* css/course.css */
+
+#course-form {
+    margin-bottom: 20px;
+  }
+  
+  #course-list {
+    margin-top: 20px;
+  }
+  
+  .course-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .course-item .course-title {
+    flex-grow: 1;
+  }
+  
+  .course-item .course-actions {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .course-item button {
+    padding: 5px 10px;
+    font-size: 0.9em;
+  }
+  
+  .search-container {
+    margin-bottom: 10px;
+  }

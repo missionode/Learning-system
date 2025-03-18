@@ -1,0 +1,41 @@
+/* css/topics.css */
+
+#course-select {
+    margin-bottom: 20px;
+  }
+  
+  #topic-form {
+    margin-bottom: 20px;
+  }
+  
+  #topic-list {
+    margin-top: 20px;
+  }
+  
+  .topic-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .topic-item .topic-title {
+    flex-grow: 1;
+  }
+  
+  .topic-item .topic-actions {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .topic-item button {
+    padding: 5px 10px;
+    font-size: 0.9em;
+  }
+  
+  .search-container {
+    margin-bottom: 10px;
+  }

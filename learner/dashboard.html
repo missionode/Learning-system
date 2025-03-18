@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning App - Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="app-name">Learning System</div>
+        <div class="hamburger-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="menu-items">
+            <a href="settings.html">Settings</a>
+            <a href="help.html">Help</a>
+            <a href="track-progress.html">Progress Tracker</a>
+        </div>
+    </nav>
+    <div class="dashboard-container">
+        <div class="welcome-section">
+            <h2 id="welcome-message"></h2>
+            <button id="journey-btn">Start Your Journey</button>
+        </div>
+        <div class="topics-section">
+            <h3>Topics You Excel In</h3>
+            <ul id="excel-topics"></ul>
+            <h3>Topics You Need to Focus On</h3>
+            <ul id="focus-topics"></ul>
+        </div>
+        <div style="display: none;" class="charts-section">
+            <div class="chart-container">
+                <h3>Time Spent on Top 5 Topics</h3>
+                <canvas id="time-spent-chart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Quiz Performance</h3>
+                <canvas id="quiz-performance-chart"></canvas>
+            </div>
+        </div>
+        <div class="tips-section">
+            <h3>Tips and Tricks</h3>
+            <p>Fill something when you find out...</p>
+        </div>
+    </div>
+    <nav class="bottom-nav">
+        <a href="dashboard.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Dashboard</span>
+        </a>
+        <a href="journey.html" class="nav-item">
+            <i class="fas fa-route"></i>
+            <span>Journey</span>
+        </a>
+        <a href="profile.html" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+    </nav>
+    <script src="js/script.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

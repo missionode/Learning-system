@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Data</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/manage.css">
+    <script src="../js/script.js"></script>
+</head>
+<body>
+    <script>
+        document.body.innerHTML = createNavigation() + document.body.innerHTML;
+    </script>
+    <div class="main-content">
+        <div class="card">
+            <h1>Manage Data</h1>
+            <div id="full-backup">
+                <h2>Download Backup</h2>
+                <p>Download the complete backup of the website.</p>
+                <button id="download-full-backup">Download</button>
+                <input type="file" id="restore-full-backup" style="display: none;">
+                <button id="restore-full-backup-button">Restore</button>
+            </div>
+            <div id="course-backup">
+                <h2>Download Course Backup</h2>
+                <p>Select the course and download the backup.</p>
+                <select id="course-select-backup">
+                    <option value="">Select a Course</option>
+                </select>
+                <button id="download-course-backup">Download</button>
+            </div>
+        </div>
+    </div>
+    <script src="../js/script.js"></script>
+    <script src="../js/manage.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+/* css/dashboard.css */
+
+.card {
+    text-align: center;
+    max-width: 600px;
+    margin: 50px auto; /* Center the card */
+  }
+  
+  .card h1 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .card p {
+    color: #666;
+    font-size: 1.1em;
+  }

@@ -1,0 +1,20 @@
+/* css/help.css */
+
+.help-container {
+    padding: 20px;
+}
+
+.help-content {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.help-content h2 {
+    margin-bottom: 10px;
+}
+
+.help-content ul {
+    margin-bottom: 20px;
+}

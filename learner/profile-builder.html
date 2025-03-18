@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning App - Profile Builder</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile-builder.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+</head>
+<body>
+    <div class="profile-builder-container">
+        <div class="profile-builder-form">
+            <h2>Profile Setup</h2>
+            <label for="name">Name*:</label>
+            <input type="text" id="name" placeholder="Your Name" required>
+            <label for="nickname">Learner Nickname*:</label>
+            <input type="text" id="nickname" placeholder="Your Nickname" required>
+            <label for="database">Upload Database*:</label>
+            <input type="file" id="database" accept=".json" required>
+            <button id="submit-btn">Submit</button>
+        </div>
+    </div>
+    <nav class="bottom-nav">
+        <a href="dashboard.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Dashboard</span>
+        </a>
+        <a href="journey.html" class="nav-item">
+            <i class="fas fa-route"></i>
+            <span>Journey</span>
+        </a>
+        <a href="profile.html" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+    </nav>
+    <script src="js/script.js"></script>
+    <script src="js/profile-builder.js"></script>
+</body>
+</html>

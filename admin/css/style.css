@@ -1,0 +1,120 @@
+/* css/style.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.07); /* Slightly stronger shadow */
+    padding: 25px; /* Increase padding */
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+    transition: box-shadow 0.3s ease; /* Add transition */
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Hover effect */
+  }
+  
+  input[type="text"],
+  input[type="url"],
+  select,
+  textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px; /* Increase button padding */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Add transform transition */
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px); /* Slight lift on hover */
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .grid-item {
+    /* Styles for grid items (e.g., cards) */
+  }
+  
+  /* Transitions */
+  button, input, select, textarea {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  button:focus, input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Minimalist form styling */
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+
+  /* css/style.css */
+
+/* ... (previous styles) ... */
+
+.top-nav {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 0;
+}
+
+.top-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.top-nav li {
+    margin: 0 15px;
+}
+
+.top-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.top-nav a:hover {
+    background-color: #0056b3;
+}

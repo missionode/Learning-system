@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning App - Profile</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+</head>
+<body>
+    <div class="profile-container">
+        <h1 style="text-align: center;">Your Profile</h1>
+        <div class="profile-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Your Name">
+            <label for="nickname">Learner Nickname:</label>
+            <input type="text" id="nickname" placeholder="Your Nickname">
+            <label for="database">Upload Database:</label>
+            <input type="file" id="database" accept=".json">
+            <div class="profile-actions">
+                <button id="submit-btn">Submit</button>
+                <button id="cancel-btn">Cancel</button>
+            </div>
+            <a style="text-align: right;width: 100%;display:  inline-block; margin-top: 20px;" href="dashboard.html">Go to Dashboard</a>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

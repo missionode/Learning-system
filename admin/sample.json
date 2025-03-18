@@ -1,0 +1,55 @@
+{
+  "courses": [
+    {
+      "title": "Introduction to Web Development"
+    },
+    {
+      "title": "Advanced JavaScript Concepts"
+    },
+    {
+      "title": "Python for Data Science"
+    }
+  ],
+  "topics": [
+    {
+      "title": "HTML Basics",
+      "tag": "Starting point",
+      "googleDocLink": "https://docs.google.com/document/d/123",
+      "videoLink": "https://www.youtube.com/watch?v=abc",
+      "audioLink": "https://soundcloud.com/xyz",
+      "slideLink": "https://docs.google.com/presentation/d/456",
+      "quizData": "\"What is HTML?\",\"Hyper Text Markup Language,Hyperlink and Text Markup Language,Home Tool Markup Language,None of the above\",\"Hyper Text Markup Language\",\"multiple\"\n\"Is HTML a programming language?\",\"True,False\",\"False\",\"true-false\"",
+      "course": "Introduction to Web Development"
+    },
+    {
+      "title": "ES6 Features",
+      "tag": "Hike",
+      "googleDocLink": "https://docs.google.com/document/d/789",
+      "videoLink": "https://www.youtube.com/watch?v=def",
+      "audioLink": "https://soundcloud.com/pqr",
+      "slideLink": "https://docs.google.com/presentation/d/101",
+      "quizData": "\"What is let in ES6?\",\"Block scoped variable,Global variable,Function scoped variable,None of the above\",\"Block scoped variable\",\"multiple\"\n\"Does ES6 support arrow functions?\",\"True,False\",\"True\",\"true-false\"",
+      "course": "Advanced JavaScript Concepts"
+    },
+    {
+      "title": "Pandas Library",
+      "tag": "Checkpoint",
+      "googleDocLink": "https://docs.google.com/document/d/112",
+      "videoLink": "https://www.youtube.com/watch?v=ghi",
+      "audioLink": "https://soundcloud.com/stu",
+      "slideLink": "https://docs.google.com/presentation/d/131",
+      "quizData": "\"What is Pandas used for?\",\"Data manipulation,Web development,Game development,Mobile development\",\"Data manipulation\",\"multiple\"\n\"Can Pandas handle CSV files?\",\"True,False\",\"True\",\"true-false\"",
+      "course": "Python for Data Science"
+    },
+    {
+      "title": "CSS Styling",
+      "tag": "Hike",
+      "googleDocLink": "https://docs.google.com/document/d/141",
+      "videoLink": "https://www.youtube.com/watch?v=jkl",
+      "audioLink": "https://soundcloud.com/vwx",
+      "slideLink": "https://docs.google.com/presentation/d/151",
+      "quizData": "\"What does CSS stand for?\",\"Cascading Style Sheets,Computer Style Sheets,Creative Style Sheets,Colorful Style Sheets\",\"Cascading Style Sheets\",\"multiple\"\n\"Can CSS change the layout of a webpage?\",\"True,False\",\"True\",\"true-false\"",
+      "course": "Introduction to Web Development"
+    }
+  ]
+}

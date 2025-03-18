@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic Management</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/topics.css">
+    <script src="../js/script.js"></script>
+</head>
+<body>
+    <script>
+        document.body.innerHTML = createNavigation() + document.body.innerHTML;
+    </script>
+    <div class="main-content">
+        <div class="card">
+            <h1>Manage Topics</h1>
+            <div id="course-select">
+                <select id="selected-course">
+                    <option value="">Select a Course</option>
+                </select>
+            </div>
+            <div id="topic-form">
+            </div>
+            <div id="topic-list">
+            </div>
+        </div>
+    </div>
+    <script src="../js/script.js"></script>
+    <script src="../js/topics.js"></script>
+</body>
+</html>
