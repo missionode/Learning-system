@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const topicTitle = document.createElement('h3');
             topicTitle.textContent = topic.title;
+            topicTitle.setAttribute('title', topic.title);
             topicDiv.appendChild(topicTitle);
 
             const topicTag = document.createElement('p');
@@ -91,5 +92,33 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.log("User data or topics not found.");
         window.location.href = "dashboard.html";
-    }
+    } 
+
+
+    const tagElements = document.querySelectorAll(".topic-tag");
+    tagElements.forEach(element => {
+      addClassBasedOnTagContent(element);
+    });
+
 });
+
+
+function addClassBasedOnTagContent(element) {
+    if (!element || !element.classList) {
+      console.error("Invalid element provided.");
+      return;
+    }
+  
+    const tagContent = element.textContent.trim().toLowerCase(); // Get content, trim, and lowercase
+  
+    if (tagContent.includes("starting point")) {
+      element.classList.add("starting-point");
+    } else if (tagContent.includes("hike")) {
+      element.classList.add("hike");
+    } else if (tagContent.includes("checkpoint")) {
+      element.classList.add("checkpoint");
+    } else {
+      // Optionally add a default class or handle unknown tags
+      element.classList.add("unknown-tag");
+    }
+  }

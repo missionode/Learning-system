@@ -1,5 +1,3 @@
-// js/quiz.js
-
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const topicTitle = urlParams.get('topic');
@@ -35,11 +33,17 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (topic.tag === 'Checkpoint') {
                 minScore = 60;
             }
-            quizRulesText.textContent = `To pass this quiz, you need to score at least ${minScore}% All the Best.`;
+            quizRulesText.textContent = `To pass this quiz, you need to score at least ${minScore}%. All the Best.`;
 
             // Quiz Questions
             const quizQuestionsContainer = document.getElementById('quiz-questions');
             const questions = parseQuizData(topic.quizData);
+
+            // Display total time
+            const totalTimeDisplay = document.getElementById('total-time-display');
+            const totalQuizTime = questions.length * 30; // 30 seconds per question
+            totalTimeDisplay.textContent = `Total Quiz Time: ${totalQuizTime} seconds`;
+
             questions.forEach((question, index) => {
                 const questionDiv = document.createElement('div');
                 questionDiv.classList.add('quiz-question');
@@ -50,8 +54,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 quizQuestionsContainer.appendChild(questionDiv);
             });
 
+            // Timer Logic
+            let quizTimer;
+            let timeLeft = totalQuizTime;
+            const timerDisplay = document.getElementById('timer-display');
+
+            function startTimer() {
+                timerDisplay.textContent = `Time left: ${timeLeft}s`;
+
+                quizTimer = setInterval(() => {
+                    timeLeft--;
+                    timerDisplay.textContent = `Time left: ${timeLeft}s`;
+
+                    if (timeLeft < 0) {
+                        clearInterval(quizTimer);
+                        alert("Time's up for the quiz!");
+                        handleQuizCompletion();
+                    }
+                }, 1000);
+            }
+
+            startTimer();
+
             // Submit Quiz
             document.getElementById('submit-quiz-btn').addEventListener('click', () => {
+                clearInterval(quizTimer);
+                handleQuizCompletion();
+            });
+
+            function handleQuizCompletion() {
                 const answers = [];
                 questions.forEach((question, index) => {
                     const selectedOption = document.querySelector(`input[name="q${index}"]:checked`);
@@ -83,6 +114,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     } else {
                         resultDiv.innerHTML += ' Failed. Try again.';
+                        document.getElementById('submit-quiz-btn').textContent = "Restart Quiz";
+                        document.getElementById('submit-quiz-btn').onclick = function() {
+                            resetQuiz();
+                        }
+
                     }
                 } else {
                     //Starting point topic always completed, but only after submit
@@ -99,7 +135,25 @@ document.addEventListener('DOMContentLoaded', () => {
                         window.location.href = 'journey.html';
                     }
                 }
-            });
+            }
+
+            function resetQuiz(){
+                clearInterval(quizTimer);
+                document.getElementById('quiz-result').innerHTML = "";
+                timeLeft = totalQuizTime;
+                document.querySelectorAll('.quiz-question').forEach(questionDiv => {
+                    questionDiv.querySelectorAll('input').forEach(input => {
+                        input.checked = false;
+                    })
+                })
+                startTimer();
+                document.getElementById('submit-quiz-btn').textContent = "Submit Quiz";
+                document.getElementById('submit-quiz-btn').onclick = function() {
+                    clearInterval(quizTimer);
+                    handleQuizCompletion();
+                }
+            }
+
         } else {
             console.log("Topic not found.");
             window.location.href = "journey.html";

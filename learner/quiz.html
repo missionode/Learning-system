@@ -2,20 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" initial-scale=1.0">
     <title>Learning App - Quiz</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/quiz.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-
 </head>
 <body>
+    <nav class="TimeLeft">
+        <div id="timer-display"></div>
+    </nav>
+
     <div class="quiz-container">
         <h1 id="quiz-title">Quiz</h1>
         <div id="quiz-rules">
             <h2>Quiz Rules</h2>
             <p id="quiz-rules-text"></p>
+            <div id="total-time-display"></div>
         </div>
+        
         <div id="quiz-questions">
             </div>
         <button id="submit-quiz-btn">Submit Quiz</button>
