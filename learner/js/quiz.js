@@ -41,7 +41,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // Display total time
             const totalTimeDisplay = document.getElementById('total-time-display');
             const totalQuizTime = questions.length * 30;
-            totalTimeDisplay.textContent = `Total Quiz Time: ${totalQuizTime} seconds`;
+            const minutes = Math.floor(totalQuizTime / 60);
+            const seconds = totalQuizTime % 60;
+            const formattedTotalTime = `${minutes} minute${minutes === 1 ? '' : 's'} ${seconds} second${seconds === 1 ? '' : 's'}`;
+            totalTimeDisplay.textContent = `Total Quiz Time: ${formattedTotalTime}`;
 
             questions.forEach((question, index) => {
                 const questionDiv = document.createElement('div');
@@ -68,11 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     questionDiv.style.display = '';
                 });
 
-                timerDisplay.textContent = `Time left: ${timeLeft}s`;
+                updateTimerDisplay(); // Initial display
 
                 quizTimer = setInterval(() => {
                     timeLeft--;
-                    timerDisplay.textContent = `Time left: ${timeLeft}s`;
+                    updateTimerDisplay();
 
                     if (timeLeft < 0) {
                         clearInterval(quizTimer);
@@ -80,6 +83,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         handleQuizCompletion();
                     }
                 }, 1000);
+            }
+
+            function updateTimerDisplay() {
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                const formattedTime = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                timerDisplay.textContent = `Time left: ${formattedTime}`;
             }
 
 
@@ -90,7 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Define topicStatuses at the beginning of the script, before handleQuizCompletion
             let topicStatuses = JSON.parse(localStorage.getItem('topicStatuses')) || {};
-
 
             function handleQuizCompletion() {
                 // Stop the timer when the quiz is completed
@@ -203,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Initial setup: show confirmation alert
-            const confirmation = confirm(`This quiz has ${totalQuizTime} seconds and ${numberOfQuestions} questions.  The minimum passing score is ${minScore}%. Are you ready to start the quiz?`);
+            const confirmation = confirm(`This quiz has ${minutes} minute${minutes === 1 ? '' : 's'} and ${seconds} second${seconds === 1 ? '' : 's'} and ${numberOfQuestions} questions.  The minimum passing score is ${minScore}%. Are you ready to start the quiz?`);
             if (confirmation) {
                 startTimer();
                 quizQuestionsContainer.style.display = '';
