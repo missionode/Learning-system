@@ -19,7 +19,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    function checkCourseCompletionAndRedirect() {
+      const topicStatuses = JSON.parse(localStorage.getItem('topicStatuses')) || {};
+      const userDataKey = Object.keys(localStorage).find(key => key.startsWith('learningAppUserData_'));
 
+      if (userDataKey) {
+          const userData = JSON.parse(localStorage.getItem(userDataKey));
+          if (userData && userData.database && userData.database.topics) {
+              const topics = userData.database.topics;
+              // Check if there are topics and if all are completed
+              const allCompleted = topics.length > 0 && topics.every(topic => topicStatuses[topic.title] === 'completed');
+
+              if (allCompleted) {
+                  // Redirect to congratulations page only if not already on it, and not on profile or settings
+                  const currentPage = window.location.pathname;
+                  if (
+                      currentPage.indexOf('congratulations.html') === -1 &&
+                      currentPage.indexOf('profile.html') === -1 &&
+                      currentPage.indexOf('settings.html') === -1
+                  ) {
+                      window.location.href = 'congratulations.html';
+                  }
+              }
+          }
+      }
+  }
+
+  checkCourseCompletionAndRedirect();
 
 
 });

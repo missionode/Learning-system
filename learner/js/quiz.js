@@ -90,16 +90,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 const score = calculateScore(questions, answers);
                 const resultDiv = document.getElementById('quiz-result');
-                resultDiv.innerHTML = `You scored ${score}%.`;
-
-                const topicStatuses = JSON.parse(localStorage.getItem('topicStatuses')) || {};
-                const topics = userData.database.topics;
-                const currentIndex = topics.findIndex(t => t.title === topic.title);
-                const nextTopic = topics[currentIndex + 1];
+                let message = `You scored ${score}%. Failed. The quiz will restart in `;
 
                 if (topic.tag !== 'Starting point') {
                     if (score >= minScore) {
-                        resultDiv.innerHTML += ' Passed!';
+                        resultDiv.innerHTML = `You scored ${score}%. Passed!`;
                         topicStatuses[topic.title] = 'completed';
                         localStorage.setItem('topicStatuses', JSON.stringify(topicStatuses));
 
@@ -113,12 +108,19 @@ document.addEventListener('DOMContentLoaded', () => {
                             window.location.href = 'journey.html';
                         }
                     } else {
-                        resultDiv.innerHTML += ' Failed. Try again.';
-                        document.getElementById('submit-quiz-btn').textContent = "Restart Quiz";
-                        document.getElementById('submit-quiz-btn').onclick = function() {
-                            resetQuiz();
-                        }
+                        // Remove the submit button.
+                        document.getElementById('submit-quiz-btn').remove();
 
+                        let countdown = 60;
+                        const countdownInterval = setInterval(() => {
+                            resultDiv.innerHTML = message + `${countdown} seconds.`;
+                            countdown--;
+
+                            if (countdown < 0) {
+                                clearInterval(countdownInterval);
+                                window.location.reload();
+                            }
+                        }, 1000);
                     }
                 } else {
                     //Starting point topic always completed, but only after submit
@@ -137,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            function resetQuiz(){
+            function resetQuiz() {
                 clearInterval(quizTimer);
                 document.getElementById('quiz-result').innerHTML = "";
                 timeLeft = totalQuizTime;
