@@ -1,7 +1,9 @@
 /* css/splash.css */
 body {
-    background: #fcfdfe url(../assets/images/hiking.gif) top center no-repeat;
-    bac
+    background: #fcfdfe url(../assets/images/hiking.gif) no-repeat;
+    background-position-x: center;
+    background-position-y: 30px;
+
 }
 .splash-container {
     display: flex;
