@@ -71,6 +71,3 @@ function addClassBasedOnTagContent(element) {
       element.classList.add("unknown-tag");
     }
   }
-
-
-

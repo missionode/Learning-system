@@ -23,6 +23,7 @@ p {
 body {
     padding-bottom: 60px;
     padding-top: 40px;
+    margin: 0;
 }
 
 /* Bottom Navigation */
@@ -31,10 +32,10 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #f0f0f0;
+    background-color: #2E8B57;
     display: flex;
     justify-content: space-around;
-    padding: 10px 0;
+    padding: 15px 0 10px 0;
     border-top: 1px solid #ddd;
 }
 
@@ -43,7 +44,7 @@ body {
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    color: #333;
+    color: #ffffff;
 }
 
 .bottom-nav .nav-item i {
@@ -69,7 +70,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #f0f0f0;
+    background-color: #d6e8df;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -171,4 +172,9 @@ body {
 
 #quiz-rules {
     display: none;
+}
+
+
+.topic-item:has(.status-completed) {
+    background-color: #f6f6f6;
 }

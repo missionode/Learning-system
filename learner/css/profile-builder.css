@@ -1,5 +1,11 @@
 /* css/profile-builder.css */
 
+body {
+    padding-bottom: 0px;
+    padding-top: 0px;
+    margin: 0;
+}
+
 .profile-builder-container {
     display: flex;
     justify-content: center;

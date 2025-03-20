@@ -1,12 +1,15 @@
 /* css/onboarding.css */
-
+body {
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
 .onboarding-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
 }
 
 .carousel {
@@ -19,6 +22,20 @@
 .carousel-slide {
     display: none;
     text-align: center;
+}
+
+.carousel-slide p {
+    width: 300px;
+    text-align: center;
+    margin: auto;
+}
+
+.carousel-content h2 {
+    color: #007bff;
+}
+
+#finish-btn {
+    background: #4caf50;
 }
 
 .carousel-slide.active {

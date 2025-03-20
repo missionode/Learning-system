@@ -22,8 +22,15 @@
     /* margin-bottom: 20px; */
 }
 
+#quiz-questions {
+    background-color: #F0F8FF;
+}
+
 .quiz-question {
     margin-bottom: 20px;
+    background-color: #f2f9fe;
+    padding: 10px 15px;
+    border-radius: 5px;
 }
 
 .quiz-question h3 {

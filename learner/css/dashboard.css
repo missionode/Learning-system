@@ -4,6 +4,7 @@
     padding: 20px;
 }
 
+
 .welcome-section,
 .topics-section,
 .charts-section,
@@ -34,3 +35,22 @@
     color: white;
     cursor: pointer;
 }
+
+
+.welcome-section {
+    background-color: #007bff;
+}
+
+.welcome-section h2,
+.welcome-section p  {
+    color: white;
+}
+
+.welcome-section button {
+    background-color: aliceblue !important;
+    color: #007bff !important;
+}
+
+.topic-item:has(.status-completed) {
+    background-color: #E8E8E8;
+  }

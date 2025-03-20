@@ -1,12 +1,15 @@
 /* css/splash.css */
-
+body {
+    background: #d6e8df url(../assets/images/hiking.gif) center center no-repeat;
+    bac
+}
 .splash-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
+    /* background-color: #f0f0f0; */
 }
 
 .splash-container h1 {
