@@ -7,6 +7,8 @@
 .journey-container h1 {
     margin-bottom: 20px;
     text-align: left;
+    font-weight: 300;
+    color: #007bff;;
 }
 
 #topic-list {
@@ -124,4 +126,9 @@
   .topic-item p:last-child {
     font-size: 7px;
     margin-top: 40px;
+  }
+
+  .welcome-text {
+    color: #0056b3;
+    margin-bottom: 40px;
   }

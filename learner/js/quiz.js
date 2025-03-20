@@ -25,28 +25,28 @@ document.addEventListener('DOMContentLoaded', () => {
         if (topic) {
             document.getElementById('quiz-title').textContent = `Quiz: ${topic.title}`;
 
-            // Quiz Rules
-            const quizRulesText = document.getElementById('quiz-rules-text');
+            // Quiz Details
             let minScore = 0;
             if (topic.tag === 'Hike') {
                 minScore = 80;
             } else if (topic.tag === 'Checkpoint') {
                 minScore = 60;
             }
-            quizRulesText.textContent = `To pass this quiz, you need to score at least ${minScore}%. All the Best.`;
 
             // Quiz Questions
             const quizQuestionsContainer = document.getElementById('quiz-questions');
             const questions = parseQuizData(topic.quizData);
+            const numberOfQuestions = questions.length;
 
             // Display total time
             const totalTimeDisplay = document.getElementById('total-time-display');
-            const totalQuizTime = questions.length * 30; // 30 seconds per question
+            const totalQuizTime = questions.length * 30;
             totalTimeDisplay.textContent = `Total Quiz Time: ${totalQuizTime} seconds`;
 
             questions.forEach((question, index) => {
                 const questionDiv = document.createElement('div');
                 questionDiv.classList.add('quiz-question');
+                questionDiv.style.display = 'none'; // Hide questions initially
                 questionDiv.innerHTML = `<h3>${question.question}</h3>`;
                 question.options.forEach(option => {
                     questionDiv.innerHTML += `<label><input type="${question.type === 'true-false' ? 'radio' : 'radio'}" name="q${index}" value="${option}"> ${option}</label>`;
@@ -58,8 +58,16 @@ document.addEventListener('DOMContentLoaded', () => {
             let quizTimer;
             let timeLeft = totalQuizTime;
             const timerDisplay = document.getElementById('timer-display');
+            timerDisplay.style.display = 'none'; // Hide timer initially
 
             function startTimer() {
+                timerDisplay.style.display = ''; // Show timer when quiz starts
+                // Show all questions at the start of the quiz
+                const questionDivs = quizQuestionsContainer.querySelectorAll('.quiz-question');
+                questionDivs.forEach(questionDiv => {
+                    questionDiv.style.display = '';
+                });
+
                 timerDisplay.textContent = `Time left: ${timeLeft}s`;
 
                 quizTimer = setInterval(() => {
@@ -74,13 +82,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 1000);
             }
 
-            startTimer();
 
-            // Submit Quiz
-            document.getElementById('submit-quiz-btn').addEventListener('click', () => {
-                clearInterval(quizTimer);
-                handleQuizCompletion();
-            });
+            // Submit Quiz - initially hidden
+            const submitQuizButton = document.getElementById('submit-quiz-btn');
+            submitQuizButton.style.display = 'none'; // Hide submit button initially
+            submitQuizButton.addEventListener('click', handleQuizCompletion);
+
+            // Define topicStatuses at the beginning of the script, before handleQuizCompletion
+            let topicStatuses = JSON.parse(localStorage.getItem('topicStatuses')) || {};
+
 
             function handleQuizCompletion() {
                 const answers = [];
@@ -98,6 +108,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         topicStatuses[topic.title] = 'completed';
                         localStorage.setItem('topicStatuses', JSON.stringify(topicStatuses));
 
+                        // Find the index of the current topic
+                        const currentTopicIndex = userData.database.topics.findIndex(t => t.title === topicTitle);
+
+                        // Get the next topic
+                        const nextTopic = userData.database.topics[currentTopicIndex + 1];
+
+
                         if (nextTopic) {
                             resultDiv.innerHTML += `<br><button id="next-topic-btn">Next Topic</button>`;
                             document.getElementById('next-topic-btn').addEventListener('click', () => {
@@ -109,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     } else {
                         // Remove the submit button.
-                        document.getElementById('submit-quiz-btn').remove();
+                        submitQuizButton.remove();
 
                         let countdown = 60;
                         const countdownInterval = setInterval(() => {
@@ -127,6 +144,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     topicStatuses[topic.title] = 'completed';
                     localStorage.setItem('topicStatuses', JSON.stringify(topicStatuses));
 
+                    const currentTopicIndex = userData.database.topics.findIndex(t => t.title === topicTitle);
+                    const nextTopic = userData.database.topics[currentTopicIndex + 1];
+
                     if (nextTopic) {
                         resultDiv.innerHTML += `<br><button id="next-topic-btn">Next Topic</button>`;
                         document.getElementById('next-topic-btn').addEventListener('click', () => {
@@ -143,18 +163,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 clearInterval(quizTimer);
                 document.getElementById('quiz-result').innerHTML = "";
                 timeLeft = totalQuizTime;
-                document.querySelectorAll('.quiz-question').forEach(questionDiv => {
+                questions.forEach((question, index) => {
+                    const questionDiv = quizQuestionsContainer.querySelectorAll('.quiz-question')[index];
                     questionDiv.querySelectorAll('input').forEach(input => {
                         input.checked = false;
                     })
-                })
-                startTimer();
-                document.getElementById('submit-quiz-btn').textContent = "Submit Quiz";
-                document.getElementById('submit-quiz-btn').onclick = function() {
-                    clearInterval(quizTimer);
-                    handleQuizCompletion();
-                }
+                    questionDiv.style.display = 'none'; // Hide all questions
+                });
+                timerDisplay.style.display = 'none';
+                submitQuizButton.style.display = 'none';
             }
+
+            // Initial setup: show confirmation alert
+            const confirmation = confirm(`This quiz has ${totalQuizTime} seconds and ${numberOfQuestions} questions.  The minimum passing score is ${minScore}%. Are you ready to start the quiz?`);
+            if (confirmation) {
+                startTimer();
+                quizQuestionsContainer.style.display = '';
+                submitQuizButton.style.display = '';
+                timerDisplay.style.display = ''; //show timer
+            } else {
+                history.back();
+            }
+
+
 
         } else {
             console.log("Topic not found.");
