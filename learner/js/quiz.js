@@ -93,6 +93,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
             function handleQuizCompletion() {
+                // Stop the timer when the quiz is completed
+                clearInterval(quizTimer);
+
                 const answers = [];
                 questions.forEach((question, index) => {
                     const selectedOption = document.querySelector(`input[name="q${index}"]:checked`);
@@ -101,6 +104,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 const score = calculateScore(questions, answers);
                 const resultDiv = document.getElementById('quiz-result');
                 let message = `You scored ${score}%. Failed. The quiz will restart in `;
+
+                questions.forEach((question, index) => {
+                    const selectedOption = document.querySelector(`input[name="q${index}"]:checked`);
+                    const questionDiv = quizQuestionsContainer.querySelectorAll('.quiz-question')[index];
+                    const labels = questionDiv.querySelectorAll('label'); // Get all labels
+
+                    labels.forEach(label => {
+                        const input = label.querySelector('input');
+                        if (topic.tag === 'Starting point') {
+                            if (input.value === question.correct) {
+                                label.style.backgroundColor = '#90EE90'; // Light green for correct
+                                label.style.color = 'black';
+                            } else if (selectedOption && input.value === selectedOption.value) {
+                                label.style.backgroundColor = '#FFC0CB'; // Pink for incorrect
+                                label.style.color = 'black';
+                            }
+                        }
+                        else{
+                            if (selectedOption && input.value === selectedOption.value && selectedOption.value !== question.correct) {
+                                label.style.backgroundColor = '#FFC0CB'; // Pink for incorrect
+                                label.style.color = 'black';
+                            }
+                        }
+                    });
+                });
 
                 if (topic.tag !== 'Starting point') {
                     if (score >= minScore) {

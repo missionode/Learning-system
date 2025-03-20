@@ -40,6 +40,8 @@
 .quiz-question label {
     display: block;
     margin-bottom: 5px;
+    padding: 3px 3px 1px;
+    border-radius: 4px;
 }
 
 #submit-quiz-btn,
