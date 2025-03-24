@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <input type="url" id="video-link" placeholder="Video Link">
     <input type="url" id="audio-link" placeholder="Audio Link">
     <input type="url" id="slide-link" placeholder="Google Slide Link">
-    <textarea id="quiz-data" placeholder="Quiz Data (CSV)"></textarea>
+    <textarea id="quiz-data" rows="30" placeholder="Quiz Data (CSV)"></textarea>
     <button id="add-topic-button">Add Topic</button>
     <button id="update-topic-button" style="display: none;">Update Topic</button>
     <button id="cancel-edit-button" style="display: none;">Cancel</button>
