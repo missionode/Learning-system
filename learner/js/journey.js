@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Check if all topics are completed
         const allTopicsCompleted = topics.every(topic => topicStatuses[topic.title] === 'completed');
         if (allTopicsCompleted && topics.length > 0) {
-            alert('Congratulations! You have successfully completed all topics.');
+            // alert('Congratulations! You have successfully completed all topics.');
             window.location.href = 'dashboard.html'; // Redirect to dashboard
         }
     } else {
