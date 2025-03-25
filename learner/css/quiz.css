@@ -35,6 +35,7 @@
 
 .quiz-question h3 {
     margin-bottom: 10px;
+    font-size: 20px;
 }
 
 .quiz-question label {
@@ -42,7 +43,7 @@
     margin-bottom: 5px;
     padding: 3px 3px 1px;
     border-radius: 4px;
-    font-size: 15px;
+    font-size: 18px;
 }
 
 #submit-quiz-btn,
