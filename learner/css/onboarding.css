@@ -52,12 +52,21 @@ body {
     margin-top: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    flex-direction: column;
 }
 
 .carousel-dots {
     display: flex;
     margin: 0 20px;
+    margin-bottom: 40px;
+    justify-content: center
+
+}
+
+.controls_holders {
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
 }
 
 .dot {
