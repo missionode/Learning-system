@@ -2,7 +2,7 @@
   "name": "Learning System",
   "short_name": "LearnSys",
   "description": "A progressive web app for interactive learning and progress tracking",
-  "start_url": "/index.html",
+  "start_url": "/dashboard.html",
   "display": "standalone",
   "background_color": "#fafafa",
   "theme_color": "#6ee7b7",
