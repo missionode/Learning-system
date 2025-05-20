@@ -1,180 +1,228 @@
-/* css/style.css */
-/* css/style.css */
-
+/* css/style.css - Modernized styles for learning system */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
-body {
-    font-family: 'Roboto', sans-serif;
-    color: #333; /* Default text color */
-    line-height: 1.6; /* Standard line height for readability */
+/* Define CSS Variables */
+/* css/style.css - Modernized global styles with vibrant light colors for learning system */
+
+/* css/style.css - Modernized global styles with muted nude shades for learning system */
+
+/* Root Variables */
+:root {
+    /* Colors */
+    --muted-green: #6ee7b7; /* Muted sage green for buttons, completed status */
+    --muted-blue: #7dd3fc; /* Muted sky blue for buttons, links, pending status */
+    --nude-beige: #f5e8d3; /* Creamy beige for backgrounds or accents */
+    --text-primary: #656565; /* Soft black for primary text */
+    --text-secondary: #5a5a5a; /* Muted grey for secondary text */
+    --text-on-dark: #ffffff; /* White for text on dark backgrounds */
+    --border-color: #e5e7eb; /* Soft grey with nude undertone for borders */
+    --shadow-color: rgba(0, 0, 0, 0.06); /* Delicate shadow for nude aesthetic */
+    --input-bg: #f9fafb; /* Nude off-white for inputs */
+    --background-body: linear-gradient(135deg, #fafafa 0%, #f3f4f6 100%); /* Neutral nude gradient for body */
+    --background-section: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); /* Nude-grey with hint of blue for sections */
+    --background-nav: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%); /* Muted grey-nude for nav and timer */
+  
+    /* Typography */
+    --font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    --font-size-base: 1rem; /* 16px */
+    --font-size-heading: 1.5rem; /* 24px */
+    --line-height-base: 1.5;
+  
+    /* Spacing */
+    --spacing-sm: 0.5rem; /* 8px */
+    --spacing-md: 1rem; /* 16px */
+    --spacing-lg: 2rem; /* 32px */
+  
+    /* Shadows */
+    --box-shadow: 0 2px 6px var(--shadow-color);
+  
+    /* Transitions */
+    --transition-base: all 0.2s ease-in-out;
 }
 
+/* Base Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  color: var(--text-primary);
+  line-height: 1.6;
+  background: var(--background-body);
+  margin: 0;
+  padding-top: var(--spacing-xl);
+  padding-bottom: 60px; /* Space for bottom nav */
+}
+
+/* Headings */
 h1, h2, h3, h4, h5, h6 {
-    color: #555; /* Lighter shade of grey for headings */
-    margin-bottom: 10px; /* Standard spacing below headings */
+  color: var(--grey-dark);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 700;
 }
 
+/* Paragraphs */
 p {
-    font-size: 16px; /* Standard paragraph font size */
-    margin-bottom: 15px; /* Standard spacing below paragraphs */
-}
-
-/* ... rest of your CSS ... */
-body {
-    padding-bottom: 60px;
-    padding-top: 40px;
-    margin: 0;
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-md);
 }
 
 /* Bottom Navigation */
 .bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #2E8B57;
-    display: flex;
-    justify-content: space-around;
-    padding: 15px 0 10px 0;
-    border-top: 1px solid #ddd;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--background-nav);
+  display: flex;
+  justify-content: space-around;
+  padding: var(--spacing-sm) 0;
+  border-top: 1px solid var(--border-color);
+  box-shadow: var(--box-shadow);
 }
 
 .bottom-nav .nav-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--grey-dark);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.bottom-nav .nav-item:hover {
+  color: var(--muted-blue);
+  transform: translateY(-2px);
 }
 
 .bottom-nav .nav-item i {
-    font-size: 20px;
-    margin-bottom: 5px;
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing-sm);
 }
 
 .bottom-nav .nav-item span {
-    font-size: 12px;
+  font-size: var(--font-size-nav);
 }
 
-/* Add active class */
-.bottom-nav .nav-item.active{
-    color:#007bff;
+.bottom-nav .nav-item.active {
+  color: var(--muted-green);
 }
-
-
-/* css/style.css */
 
 /* Top Navigation */
 .top-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #d6e8df;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #ddd;
-    z-index: 100; Ensure it's above other content 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  width: -webkit-fill-available;
+
+  background: var(--background-nav);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--box-shadow);
+  z-index: 100;
+  margin-bottom: 20px;
 }
 
 .top-nav .app-name {
-    font-weight: bold;
-    font-size: 18px;
+  font-weight: 700;
+  font-size: var(--font-size-heading);
+  color: var(--text-primary);
+   padding: var(--spacing-sm) var(--spacing-md);
 }
 
 .top-nav .hamburger-menu {
-    cursor: pointer;
-    position: relative;
-    margin-right: 20px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--grey-dark);
+  margin-right: var(--spacing-md);
+  transition: color 0.2s ease;
+}
+
+.top-nav .hamburger-menu:hover {
+  color: var(--muted-blue);
 }
 
 .top-nav .menu-items {
-    display: none; /* Initially hidden */
-    position: absolute;
-    top: 50px; /* Adjust as needed */
-    right: 15px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 10px;
-    flex-direction: column;
-}
-
-.top-nav .menu-items a {
-    text-decoration: none;
-    color: #333;
-    padding: 8px 12px;
-    display: block;
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: var(--spacing-md);
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: var(--spacing-sm);
+  flex-direction: column;
+  box-shadow: var(--box-shadow);
 }
 
 .top-nav .menu-items.show {
-    display: flex; /* Show the menu */
+  display: flex;
 }
 
-
-/* Basic Top Nav Styles */
-.top-nav {
-    /* display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333; /* Or your preferred background 
-    color: white;
-    padding: 10px 20px;
-    width: 100%; */
+.top-nav .menu-items a {
+  text-decoration: none;
+  color: var(--grey-dark);
+  padding: var(--spacing-sm) var(--spacing-md);
+  display: block;
+  transition: color 0.2s ease, background 0.2s ease;
 }
 
-.app-name {
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-left: 20px;
-}
-
-.menu-items {
-    display: flex;
-    gap: 3px; /* Space between links */
-}
-
-.menu-items a {
-    color: white;
-    text-decoration: none;
-}
-
-/* Hamburger Menu Styles */
-.hamburger-menu {
-    font-size: 1.5em;
-    cursor: pointer;
+.top-nav .menu-items a:hover {
+  color: var(--muted-blue);
+  background: var(--background-body);
 }
 
 /* Responsive Styles */
-@media (max-width: 768px) { /* Adjust breakpoint as needed */
-    .menu-items {
-        display: none; /* Hide menu items on smaller screens */
-        flex-direction: column;
-        position: absolute;
-        top: 60px; /* Adjust based on top nav height */
-        right: 0;
-        background-color: #333;
-        width: 150px;
-        padding: 10px;
-    }
+@media (max-width: 768px) {
+  .top-nav .menu-items {
+    width: 150px;
+  }
 
-    .menu-items.show {
-        display: flex; /* Show menu items when hamburger is clicked */
-    }
+  .top-nav .app-name {
+    font-size: 1.25rem;
+  }
 
-    .hamburger-menu {
-        display: block; /* Show hamburger on smaller screens */
-    }
+  .bottom-nav .nav-item i {
+    font-size: 1.125rem;
+  }
+
+  .bottom-nav .nav-item span {
+    font-size: 0.75rem;
+  }
 }
 
-#quiz-rules {
+@media (min-width: 769px) {
+  .top-nav .hamburger-menu {
     display: none;
+  }
+
+  .top-nav .menu-items {
+    display: flex;
+    position: static;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    flex-direction: row;
+    gap: var(--spacing-md);
+  }
+
+  .top-nav .menu-items a {
+    padding: var(--spacing-sm);
+  }
 }
 
+/* Quiz Rules */
+#quiz-rules {
+  display: none;
+}
 
+/* Topic Item */
 .topic-item:has(.status-completed) {
-    background-color: #f6f6f6;
+  background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%); /* Subtle grey gradient */
+}
+
+/* Focus States for Accessibility */
+a:focus, button:focus, .nav-item:focus, .hamburger-menu:focus {
+  outline: 2px solid var(--muted-blue);
+  outline-offset: 2px;
 }

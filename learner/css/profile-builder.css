@@ -1,54 +1,128 @@
-/* css/profile-builder.css */
+/* css/profile-builder.css - Modernized styles for learning system profile builder page */
 
+/* Body Overrides */
 body {
-    padding-bottom: 0px;
-    padding-top: 0px;
+    padding: 0;
     margin: 0;
-}
-
-.profile-builder-container {
+    background: var(--background-body); /* From style.css */
+  }
+  
+  /* Profile Builder Container */
+  .profile-builder-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #f9f9f9;
-}
-
-.profile-builder-form {
+    min-height: 100vh;
+    background: var(--background-body); /* From style.css */
+    padding: var(--spacing-md);
+  }
+  
+  /* Profile Builder Form */
+  .profile-builder-form {
     width: 80%;
     max-width: 400px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.profile-builder-form h2 {
+    padding: var(--spacing-md);
+    background: var(--background-section); /* From dashboard.css */
+    border-radius: 12px;
+    box-shadow: var(--box-shadow); /* From style.css */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .profile-builder-form:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-color);
+  }
+  
+  /* Form Heading */
+  .profile-builder-form h2 {
     text-align: center;
-    margin-bottom: 20px;
-}
-
-.profile-builder-form label {
+    margin-bottom: var(--spacing-md);
+    color: var(--grey-dark); /* From style.css */
+    font-weight: 700;
+    font-size: var(--font-size-heading);
+  }
+  
+  /* Form Labels */
+  .profile-builder-form label {
     display: block;
-    margin-bottom: 5px;
-}
-
-.profile-builder-form input[type="text"],
-.profile-builder-form input[type="file"] {
+    margin-bottom: var(--spacing-sm);
+    color: var(--grey-dark); /* From style.css */
+    font-size: var(--font-size-base);
+    font-weight: 500;
+  }
+  
+  /* Form Inputs */
+  .profile-builder-form input[type="text"],
+  .profile-builder-form input[type="file"] {
     width: calc(100% - 22px);
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid var(--border-color); /* From style.css */
+    border-radius: 6px;
     box-sizing: border-box;
-}
-
-#submit-btn {
+    background: #f7fafc; /* Near-white, matching section tones */
+    color: var(--text-primary); /* From style.css */
+    font-size: var(--font-size-base);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .profile-builder-form input[type="text"]:focus,
+  .profile-builder-form input[type="file"]:focus {
+    border-color: var(--muted-blue); /* From style.css */
+    box-shadow: 0 0 0 3px rgba(75, 108, 183, 0.2);
+    outline: none;
+  }
+  
+  /* Submit Button */
+  #submit-btn {
     width: 100%;
-    padding: 10px 15px;
+    padding: var(--spacing-sm) var(--spacing-md);
     border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: white;
+    border-radius: 6px;
+    background: var(--button-gradient); /* From journey.css */
+    color: var(--text-on-dark); /* From style.css */
     cursor: pointer;
-}
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  
+  #submit-btn:hover {
+    background: var(--button-gradient-hover); /* From journey.css */
+    transform: translateY(-1px);
+  }
+  
+  /* Focus States for Accessibility */
+  #submit-btn:focus,
+  .profile-builder-form input[type="text"]:focus,
+  .profile-builder-form input[type="file"]:focus {
+    outline: 2px solid var(--muted-blue);
+    outline-offset: 2px;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .profile-builder-container {
+      padding: var(--spacing-sm);
+    }
+  
+    .profile-builder-form {
+      width: 90%;
+      padding: var(--spacing-sm);
+    }
+  
+    .profile-builder-form h2 {
+      font-size: 1.25rem;
+    }
+  
+    .profile-builder-form input[type="text"],
+    .profile-builder-form input[type="file"] {
+      width: calc(100% - 20px);
+      font-size: 0.875rem;
+    }
+  
+    #submit-btn {
+      padding: var(--spacing-sm);
+      font-size: 0.875rem;
+    }
+  }

@@ -1,20 +1,67 @@
-/* congrats.css */
+/* css/congrats.css - Modernized styles for learning system congratulations page */
 
-.congrats-container {
+:root {
+    /* Congrats-specific variables */
+    --button-gradient: linear-gradient(135deg, var(--muted-green) 0%, var(--muted-blue) 100%); /* Green-to-blue for buttons */
+    --button-gradient-hover: linear-gradient(135deg, #5a9b7f 0%, #3b5796 100%); /* Darker for hover */
+  }
+  
+  /* Congrats Container */
+  .congrats-container {
     text-align: center;
-    padding: 50px;
-}
-
-.congrats-links a {
+    padding: var(--spacing-lg);
+    background: var(--background-section); /* From dashboard.css */
+    border-radius: 12px;
+    box-shadow: var(--box-shadow); /* From style.css */
+    margin: var(--spacing-md) auto;
+    max-width: 600px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .congrats-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-color);
+  }
+  
+  /* Congrats Links/Buttons */
+  .congrats-links a {
     display: inline-block;
-    padding: 10px 20px;
-    margin: 10px;
-    background-color: #007bff; /* Example button color */
-    color: white;
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin: var(--spacing-sm);
+    background: var(--button-gradient);
+    color: var(--text-on-dark);
     text-decoration: none;
-    border-radius: 5px;
-}
-
-.congrats-links a i {
-    margin-left: 5px;
-}
+    border-radius: 6px;
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  
+  .congrats-links a:hover {
+    background: var(--button-gradient-hover);
+    transform: scale(1.05);
+  }
+  
+  .congrats-links a i {
+    margin-left: var(--spacing-sm);
+    font-size: 1rem;
+  }
+  
+  /* Focus States for Accessibility */
+  .congrats-links a:focus {
+    outline: 2px solid var(--muted-blue);
+    outline-offset: 2px;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .congrats-container {
+      padding: var(--spacing-md);
+      margin: var(--spacing-sm);
+    }
+  
+    .congrats-links a {
+      padding: var(--spacing-sm) var(--spacing-sm);
+      font-size: 0.875rem;
+    }
+  }

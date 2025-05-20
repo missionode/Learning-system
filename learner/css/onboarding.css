@@ -1,97 +1,209 @@
-/* css/onboarding.css */
-body {
-    padding-bottom: 0px;
-    padding-top: 0px;
-}
-.onboarding-container {
+/* css/onboarding.css - Modernized styles for learning system onboarding page */
+
+:root {
+    /* Onboarding-specific variables */
+    --dot-inactive-bg: #d1d9e6; /* Light grey for inactive dots */
+    --finish-button-gradient: linear-gradient(135deg, var(--muted-green) 0%, var(--muted-blue) 100%); /* Green-to-blue for finish button */
+    --finish-button-gradient-hover: linear-gradient(135deg, #5a9b7f 0%, #3b5796 100%); /* Darker for hover */
+  }
+  
+  /* Body Overrides */
+  body {
+    padding: 0;
+    margin: 0;
+    background: var(--background-body); /* From style.css */
+  }
+  
+  /* Onboarding Container */
+  .onboarding-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background-color: #ffffff;
-}
-
-.carousel {
+    min-height: 100vh;
+    background: var(--background-body); /* From style.css */
+    padding: var(--spacing-md);
+  }
+  
+  /* Carousel */
+  .carousel {
     width: 80%;
     max-width: 600px;
     overflow: hidden;
     position: relative;
-}
-
-.carousel-slide {
+    border-radius: 12px;
+    box-shadow: var(--box-shadow); /* From style.css */
+    background: var(--background-body); /* From dashboard.css */
+  }
+  
+  /* Carousel Slide */
+  .carousel-slide {
     display: none;
     text-align: center;
-}
-
-.carousel-slide p {
-    width: 300px;
-    text-align: center;
-    margin: auto;
-}
-
-.carousel-content h2 {
-    color: #007bff;
-}
-
-#finish-btn {
-    background: #4caf50;
-}
-
-.carousel-slide.active {
+    padding: var(--spacing-md);
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .carousel-slide.active {
     display: block;
-}
-
-.carousel-content img {
+  }
+  
+  .carousel-slide p {
+    max-width: 300px;
+    text-align: center;
+    margin: var(--spacing-md) auto;
+    color: var(--text-primary); /* From style.css */
+    font-size: var(--font-size-base);
+  }
+  
+  /* Carousel Content */
+  .carousel-content h2 {
+    color: var(--grey-dark); /* From style.css */
+    font-weight: 700;
+    font-size: var(--font-size-heading);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .carousel-content img {
     max-width: 100%;
     height: auto;
-    margin: 20px 0;
-}
-
-.carousel-controls {
-    margin-top: 20px;
+    margin: var(--spacing-md) 0;
+    border-radius: 8px;
+    mix-blend-mode: multiply;
+  }
+  
+  /* Carousel Controls */
+  .carousel-controls {
+    margin-top: var(--spacing-lg);
     display: flex;
-    justify-content: center;
     flex-direction: column;
-}
-
-.carousel-dots {
+    align-items: center;
+  }
+  
+  .carousel-dots {
     display: flex;
-    margin: 0 20px;
-    margin-bottom: 40px;
-    justify-content: center
-
-}
-
-.controls_holders {
+    margin: 0 var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    justify-content: center;
+  }
+  
+  .controls_holders {
     display: flex;
     justify-content: space-between;
     width: 350px;
-}
-
-.dot {
-    width: 10px;
-    height: 10px;
+    max-width: 100%;
+  }
+  
+  /* Dots */
+  .dot {
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
-    background-color: #ccc;
-    margin: 0 5px;
+    background: var(--dot-inactive-bg);
+    margin: 0 var(--spacing-sm);
     cursor: pointer;
-}
-
-.dot.active {
-    background-color: #007bff;
-}
-
-#prev-btn, #next-btn, #finish-btn {
-    padding: 10px 15px;
-    margin: 0 10px;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  
+  .dot:hover {
+    transform: scale(1.2);
+  }
+  
+  .dot.active {
+    background: var(--muted-blue); /* From style.css */
+    transform: scale(1.2);
+  }
+  
+  /* Buttons */
+  #prev-btn,
+  #next-btn,
+  #finish-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin: 0 var(--spacing-sm);
     border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: white;
+    border-radius: 6px;
     cursor: pointer;
-}
-
-#finish-btn {
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    color: var(--text-on-dark); /* From style.css */
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  
+  #prev-btn,
+  #next-btn {
+    background: var(--button-gradient); /* From journey.css */
+  }
+  
+  #prev-btn:hover,
+  #next-btn:hover {
+    background: var(--button-gradient-hover); /* From journey.css */
+    transform: translateY(-1px);
+  }
+  
+  #finish-btn {
+    background: var(--finish-button-gradient);
     display: none;
-}
+  }
+  
+  #finish-btn:hover {
+    background: var(--finish-button-gradient-hover);
+    transform: translateY(-1px);
+  }
+  
+  /* Focus States for Accessibility */
+  #prev-btn:focus,
+  #next-btn:focus,
+  #finish-btn:focus,
+  .dot:focus {
+    outline: 2px solid var(--muted-blue);
+    outline-offset: 2px;
+  }
+  
+  /* Animation for Slide Transition */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .onboarding-container {
+      padding: var(--spacing-sm);
+    }
+  
+    .carousel {
+      width: 90%;
+    }
+  
+    .carousel-slide p {
+      max-width: 250px;
+      font-size: 0.875rem;
+    }
+  
+    .carousel-content h2 {
+      font-size: 1.25rem;
+    }
+  
+    .controls_holders {
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--spacing-sm);
+    }
+  
+    #prev-btn,
+    #next-btn,
+    #finish-btn {
+      padding: var(--spacing-sm);
+      font-size: 0.875rem;
+    }
+  
+    .carousel-dots {
+      margin-bottom: var(--spacing-md);
+    }
+  
+    .dot {
+      width: 10px;
+      height: 10px;
+    }
+  }

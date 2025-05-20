@@ -1,20 +1,75 @@
-/* css/help.css */
+/* css/help.css - Modernized styles for learning system help page */
 
+/* Help Container */
 .help-container {
-    padding: 20px;
-}
-
-.help-content {
-    background-color: white;
+    padding: var(--spacing-md);
+    background: var(--background-body); /* From style.css */
+  }
+  
+  /* Help Content */
+  .help-content {
+    background: var(--background-section); /* From dashboard.css */
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-}
-
-.help-content h2 {
-    margin-bottom: 10px;
-}
-
-.help-content ul {
-    margin-bottom: 20px;
-}
+    box-shadow: var(--box-shadow); /* From style.css */
+    padding: var(--spacing-md);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .help-content:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-color);
+  }
+  
+  /* Headings */
+  .help-content h2 {
+    color: var(--grey-dark); /* From style.css */
+    margin-bottom: var(--spacing-sm);
+    font-weight: 700;
+    font-size: var(--font-size-heading);
+  }
+  
+  /* Lists */
+  .help-content ul {
+    margin-bottom: var(--spacing-md);
+    padding-left: 1.5rem;
+    color: var(--text-primary); /* From style.css */
+  }
+  
+  .help-content ul li {
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.6;
+    position: relative;
+  }
+  
+  .help-content ul li::before {
+    content: "•";
+    color: var(--muted-blue); /* From style.css */
+    position: absolute;
+    left: -1rem;
+    font-size: 1.2rem;
+  }
+  
+  /* Focus States for Accessibility */
+  .help-content a:focus {
+    outline: 2px solid var(--muted-blue);
+    outline-offset: 2px;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .help-container {
+      padding: var(--spacing-sm);
+    }
+  
+    .help-content {
+      padding: var(--spacing-sm);
+    }
+  
+    .help-content h2 {
+      font-size: 1.25rem;
+    }
+  
+    .help-content ul {
+      padding-left: 1.25rem;
+    }
+  }

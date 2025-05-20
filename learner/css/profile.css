@@ -1,52 +1,144 @@
-/* css/profile.css */
+/* css/profile.css - Modernized styles for learning system profile page */
 
-.profile-container {
-    padding: 20px;
-}
-
-.profile-form {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+:root {
+    /* Profile-specific variables */
+    --cancel-button-gradient: linear-gradient(135deg, #edf2f7 0%, #d1d9e6 100%); /* Subtle grey for cancel button */
+    --cancel-button-gradient-hover: linear-gradient(135deg, #dfe6f0 0%, #c4cedd 100%); /* Darker for hover */
+  }
+  
+  /* Profile Container */
+  .profile-container {
+    padding: var(--spacing-md);
+    background: var(--background-body); /* From style.css */
+  }
+  
+  /* Profile Form */
+  .profile-form {
+    background: var(--background-section); /* From dashboard.css */
+    border-radius: 12px;
+    box-shadow: var(--box-shadow); /* From style.css */
+    padding: var(--spacing-md);
     max-width: 400px;
-    margin: 20px auto;
-}
-
-.profile-form label {
+    margin: var(--spacing-md) auto;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .profile-form:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-color);
+  }
+  
+  /* Form Labels */
+  .profile-form label {
     display: block;
-    margin-bottom: 5px;
-}
-
-.profile-form input[type="text"],
-.profile-form input[type="file"] {
+    margin-bottom: var(--spacing-sm);
+    color: var(--grey-dark); /* From style.css */
+    font-size: var(--font-size-base);
+    font-weight: 500;
+  }
+  
+  /* Form Inputs */
+  .profile-form input[type="text"],
+  .profile-form input[type="file"] {
     width: calc(100% - 22px);
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid var(--border-color); /* From style.css */
+    border-radius: 6px;
     box-sizing: border-box;
-}
-
-.profile-actions {
-    margin-top: 10px;
+    background: #f7fafc; /* Near-white, matching section tones */
+    color: var(--text-primary); /* From style.css */
+    font-size: var(--font-size-base);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .profile-form input[type="text"]:focus,
+  .profile-form input[type="file"]:focus {
+    border-color: var(--muted-blue); /* From style.css */
+    box-shadow: 0 0 0 3px rgba(75, 108, 183, 0.2);
+    outline: none;
+  }
+  
+  /* Profile Actions */
+  .profile-actions {
+    margin-top: var(--spacing-md);
     text-align: right;
-}
-
-#submit-btn,
-#cancel-btn {
-    padding: 10px 15px;
+  }
+  
+  /* Buttons */
+  #submit-btn,
+  #cancel-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
-    margin-left: 10px;
-}
-
-#submit-btn {
-    background-color: #007bff;
-    color: white;
-}
-
-#cancel-btn {
-    background-color: #f0f0f0;
-}
+    margin-left: var(--spacing-sm);
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  
+  #submit-btn {
+    background: var(--button-gradient); /* From journey.css */
+    color: var(--text-on-dark); /* From style.css */
+  }
+  
+  #submit-btn:hover {
+    background: var(--button-gradient-hover); /* From journey.css */
+    transform: translateY(-1px);
+  }
+  
+  #cancel-btn {
+    background: var(--cancel-button-gradient);
+    color: var(--grey-dark); /* From style.css */
+  }
+  
+  #cancel-btn:hover {
+    background: var(--cancel-button-gradient-hover);
+    transform: translateY(-1px);
+  }
+  
+  /* Focus States for Accessibility */
+  #submit-btn:focus,
+  #cancel-btn:focus,
+  .profile-form input[type="text"]:focus,
+  .profile-form input[type="file"]:focus {
+    outline: 2px solid var(--muted-blue);
+    outline-offset: 2px;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .profile-container {
+      padding: var(--spacing-sm);
+    }
+  
+    .profile-form {
+      width: 90%;
+      padding: var(--spacing-sm);
+    }
+  
+    .profile-form input[type="text"],
+    .profile-form input[type="file"] {
+      width: calc(100% - 20px);
+      font-size: 0.875rem;
+    }
+  
+    #submit-btn,
+    #cancel-btn {
+      padding: var(--spacing-sm);
+      font-size: 0.875rem;
+      margin-left: var(--spacing-sm);
+    }
+  
+    .profile-actions {
+      text-align: center;
+    }
+  
+    #submit-btn,
+    #cancel-btn {
+      display: inline-block;
+      width: calc(50% - var(--spacing-sm));
+      margin: var(--spacing-sm) 0 0 var(--spacing-sm);
+    }
+  }

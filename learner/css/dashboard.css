@@ -1,57 +1,135 @@
-/* css/dashboard.css */
+/* css/dashboard.css - Modernized styles for learning system dashboard */
 
-.dashboard-container {
-    padding: 20px;
-}
+:root {
+    /* Dashboard-specific variables */
+    --background-section: linear-gradient(135deg, #f7fafc 0%, #e6edf5 100%); /* Subtle section gradient */
+    --button-bg: var(--muted-blue); /* #4b6cb7 */
+    --button-bg-hover: #3b5796; /* Darker blue for hover */
+    --button-text: var(--text-on-dark); /* #ffffff */
+    --button-accent-bg: #edf2f7; /* Light grey for secondary buttons */
+    --button-accent-text: var(--muted-blue); /* #4b6cb7 */
+  }
+  
+  /* Dashboard Container */
+  .dashboard-container {
+    padding: var(--spacing-md);
+    background: var(--background-body); /* Inherit from style.css */
+  }
 
-
-.welcome-section,
-.topics-section,
-.charts-section,
-.tips-section {
-    background-color: white;
+  #focus-topics {
+    padding-left: 20px;
+  }
+  
+  /* Sections */
+  .welcome-section,
+  .topics-section,
+  .charts-section,
+  .tips-section {
+    background: var(--background-section);
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-.chart-container {
+    box-shadow: var(--box-shadow);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .welcome-section:hover,
+  .topics-section:hover,
+  .charts-section:hover,
+  .tips-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-color);
+  }
+  
+  /* Welcome Section */
+  .welcome-section {
+    background: var(--background-nav); /* Gradient for prominence */
+    margin-top: var(--spacing-md);
+  }
+  
+  .welcome-section h2,
+  .welcome-section p {
+    color: var(--text-primary); /* Dark grey for readability */
+  }
+  
+  /* Chart Containers */
+  .chart-container {
     width: 48%;
     display: inline-block;
     margin-right: 2%;
     vertical-align: top;
-}
-
-.chart-container:last-child {
+    background: var(--background-section);
+    border-radius: 8px;
+    padding: var(--spacing-sm);
+    box-shadow: var(--box-shadow);
+  }
+  
+  .chart-container:last-child {
     margin-right: 0;
-}
-
-#journey-btn {
-    padding: 10px 15px;
+  }
+  
+  /* Buttons */
+  #journey-btn,
+  .welcome-section button {
+    padding: var(--spacing-sm) var(--spacing-md);
     border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: white;
+    border-radius: 6px;
     cursor: pointer;
-}
-
-
-.welcome-section {
-    background-color: #007bff;
-    margin-top: 20px;
-}
-
-.welcome-section h2,
-.welcome-section p  {
-    color: white;
-}
-
-.welcome-section button {
-    background-color: aliceblue !important;
-    color: #007bff !important;
-}
-
-.topic-item:has(.status-completed) {
-    background-color: #E8E8E8;
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  
+  #journey-btn {
+    background: var(--button-bg);
+    color: var(--button-text);
+  }
+  
+  #journey-btn:hover {
+    background: var(--button-bg-hover);
+    transform: translateY(-1px);
+  }
+  
+  .welcome-section button {
+    background: var(--button-accent-bg);
+    color: var(--button-accent-text);
+  }
+  
+  .welcome-section button:hover {
+    background: #dfe6f0; /* Slightly darker grey */
+    transform: translateY(-1px);
+  }
+  
+  /* Topic Item */
+  .topic-item:has(.status-completed) {
+    background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%); /* Consistent with style.css */
+    border-radius: 6px;
+    padding: var(--spacing-sm);
+  }
+  
+  /* Focus States for Accessibility */
+  #journey-btn:focus,
+  .welcome-section button:focus {
+    outline: 2px solid var(--muted-blue);
+    outline-offset: 2px;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .chart-container {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: var(--spacing-md);
+    }
+  
+    .dashboard-container {
+      padding: var(--spacing-sm);
+    }
+  
+    .welcome-section,
+    .topics-section,
+    .charts-section,
+    .tips-section {
+      padding: var(--spacing-sm);
+    }
   }
