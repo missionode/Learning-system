@@ -14,6 +14,7 @@
   .dashboard-container {
     padding: var(--spacing-md);
     background: var(--background-body); /* Inherit from style.css */
+    margin-top: var(--spacing-lg);
   }
 
   #focus-topics {
@@ -25,7 +26,7 @@
   .topics-section,
   .charts-section,
   .tips-section {
-    background: var(--background-section);
+    background: var(--input-bg);
     border-radius: 8px;
     box-shadow: var(--box-shadow);
     padding: var(--spacing-md);
@@ -43,7 +44,7 @@
   
   /* Welcome Section */
   .welcome-section {
-    background: var(--background-nav); /* Gradient for prominence */
+    background: var(--input-bg); /* Gradient for prominence */
     margin-top: var(--spacing-md);
   }
   

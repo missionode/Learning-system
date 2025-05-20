@@ -15,6 +15,7 @@
   .journey-container {
     padding: var(--spacing-md);
     background: var(--background-body); /* From style.css */
+    margin-top: var(--spacing-lg);
   }
   
   /* Headings */

@@ -9,6 +9,7 @@
   .quiz-container {
     padding: var(--spacing-md);
     background: var(--background-body); /* From style.css */
+    margin-top: var(--spacing-lg);
   }
   
   /* Quiz Rules, Questions, and Result */
@@ -20,4 +21,163 @@
     box-shadow: var(--box-shadow); /* From style.css */
     padding: var(--spacing-md);
     margin-bottom: var(--spacing-md);
-    transition: transform 0.
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  #quiz-rules:hover,
+  #quiz-questions:hover,
+  #quiz-result:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-color);
+  }
+  
+  #quiz-result {
+    text-align: center;
+  }
+  
+  /* Quiz Title */
+  #quiz-title {
+    text-align: center;
+    color: var(--grey-dark); /* From style.css */
+    font-size: var(--font-size-heading);
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  /* Quiz Question */
+  .quiz-question {
+    margin-bottom: var(--spacing-md);
+    background: var(--question-background);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 8px;
+    border: 1px solid var(--border-color); /* From style.css */
+  }
+  
+  .quiz-question h3 {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.25rem;
+    color: var(--grey-dark); /* From style.css */
+    font-weight: 500;
+  }
+  
+  .quiz-question label {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    border-radius: 6px;
+    font-size: 1rem;
+    color: var(--text-primary); /* From style.css */
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .quiz-question label:hover {
+    background: rgba(75, 108, 183, 0.1); /* Subtle blue hover */
+  }
+  
+  /* Buttons */
+  #submit-quiz-btn,
+  #next-topic-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    border-radius: 6px;
+    background: var(--button-gradient); /* From journey.css */
+    color: var(--text-on-dark); /* From style.css */
+    cursor: pointer;
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  
+  #submit-quiz-btn:hover,
+  #next-topic-btn:hover {
+    background: var(--button-gradient-hover); /* From journey.css */
+    transform: translateY(-1px);
+  }
+  
+  #submit-quiz-btn {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  #next-topic-btn {
+    margin-top: var(--spacing-md);
+  }
+  
+  /* Timer Display */
+  #total-time-display {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: var(--spacing-sm);
+    color: var(--grey-dark); /* From style.css */
+  }
+  
+  .TimeLeft {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--background-nav); /* From style.css */
+    padding: var(--spacing-md);
+    box-shadow: var(--box-shadow);
+    z-index: 100;
+  }
+  
+  #timer-display {
+    text-align: center;
+    color: var(--text-primary); /* From style.css */
+    font-size: var(--font-size-base);
+    font-weight: 500;
+  }
+  
+  /* Focus States for Accessibility */
+  #submit-quiz-btn:focus,
+  #next-topic-btn:focus,
+  .quiz-question input[type="radio"]:focus + label,
+  .quiz-question input[type="checkbox"]:focus + label {
+    outline: 2px solid var(--muted-blue);
+    outline-offset: 2px;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .quiz-container {
+      padding: var(--spacing-sm);
+    }
+  
+    #quiz-rules,
+    #quiz-questions,
+    #quiz-result {
+      padding: var(--spacing-sm);
+    }
+  
+    .quiz-question {
+      padding: var(--spacing-sm);
+    }
+  
+    .quiz-question h3 {
+      font-size: 1.125rem;
+    }
+  
+    .quiz-question label {
+      font-size: 0.875rem;
+    }
+  
+    #submit-quiz-btn,
+    #next-topic-btn {
+      padding: var(--spacing-sm);
+      font-size: 0.875rem;
+    }
+  
+    .TimeLeft {
+      padding: var(--spacing-sm);
+    }
+  
+    #timer-display {
+      font-size: 0.875rem;
+    }
+  
+    #total-time-display {
+      font-size: 1rem;
+    }
+  }
