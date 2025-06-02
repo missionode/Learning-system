@@ -79,7 +79,7 @@ body {
     padding: var(--spacing-sm) var(--spacing-md);
     border: none;
     border-radius: 6px;
-    background: var(--button-gradient); /* From journey.css */
+    background: green; /* From journey.css */
     color: var(--text-on-dark); /* From style.css */
     cursor: pointer;
     font-size: var(--font-size-base);
