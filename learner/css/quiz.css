@@ -91,7 +91,7 @@
   
   #submit-quiz-btn:hover,
   #next-topic-btn:hover {
-    background: var(--button-gradient-hover); /* From journey.css */
+    background: green; /* From journey.css */
     transform: translateY(-1px);
   }
   
